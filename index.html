@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>JIHAD AL-DIRBANI | LED TOOLS</title>
+<meta name="description" content="أدوات تقنية احترافية لشاشات LED: دقة الشاشة، الكابينات، الطاقة، توصيلات البيانات، Resolume وتقرير PDF.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+:root{--bg:#060b17;--bg2:#0b1426;--card:rgba(20,32,58,.6);--bd:rgba(110,160,255,.18);--ac:#2f7bff;--ac2:#6aa8ff;--tx:#f2f6ff;--mu:#9db0d0;--ok:#35d49a;--wr:#ffb454;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px;height:100%}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:Cairo,system-ui,sans-serif;line-height:1.7;overflow-x:hidden}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(6,11,23,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd)}
+nav{max-width:1150px;margin:auto;display:flex;align-items:center;gap:14px;padding:8px 16px;overflow-x:auto;white-space:nowrap}
+nav b{font-family:Cairo;letter-spacing:.5px;direction:ltr;color:#fff}nav b i{color:var(--ac2);font-style:normal}
+nav a{color:var(--mu);text-decoration:none;font-size:14px;padding:4px 8px;border-radius:8px}nav a:hover{color:#fff;background:rgba(47,123,255,.15)}
+section{max-width:1150px;margin:auto;padding:64px 16px}
+h2{font-size:clamp(24px,4vw,34px);margin:0 0 6px}p.sub{color:var(--mu);margin:0 0 24px}
+#home{min-height:92vh;display:flex;flex-direction:column;justify-content:center;position:relative;max-width:none;padding:0}
+#bg{position:absolute;inset:0;width:100%;height:100%;opacity:.9}
+.hero{position:relative;max-width:1150px;margin:auto;padding:40px 16px;z-index:1}
+.hero h1{font-size:clamp(32px,6.5vw,64px);line-height:1.25;margin:0 0 14px;font-weight:800;background:linear-gradient(90deg,#fff,var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:640px;color:var(--mu);font-size:18px}.hero p.s{font-size:15px}
+.btn{display:inline-block;border:0;cursor:pointer;font:600 15px Cairo;padding:11px 22px;border-radius:12px;color:#fff;background:linear-gradient(135deg,var(--ac),#1c52c9);text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 0 0 rgba(47,123,255,0)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(47,123,255,.4)}.btn.g{background:transparent;border:1px solid var(--bd);color:var(--tx)}.btn.s{padding:6px 14px;font-size:13px}
+.scroll{position:absolute;bottom:18px;left:50%;width:22px;height:36px;border:2px solid var(--mu);border-radius:12px;z-index:1}.scroll::after{content:"";position:absolute;top:6px;left:8px;width:4px;height:7px;border-radius:2px;background:var(--ac2);animation:sc 1.6s infinite}
+@keyframes sc{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(12px)}}
+.c{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:20px;backdrop-filter:blur(8px);transition:border-color .25s,transform .25s}.c:hover{border-color:rgba(106,168,255,.45)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}.tabs button{font:600 14px Cairo;background:transparent;color:var(--mu);border:1px solid var(--bd);border-radius:10px;padding:7px 14px;cursor:pointer}.tabs button.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.pn{display:none}.pn.on{display:block;animation:fi .35s}@keyframes fi{from{opacity:0;transform:translateY(8px)}}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:12px}
+label{font-size:13px;color:var(--mu);display:block}
+input,select,textarea{width:100%;background:#0a1226;color:var(--tx);border:1px solid var(--bd);border-radius:10px;padding:9px 10px;font:15px Cairo;direction:ltr;text-align:right}
+select,textarea{direction:rtl}input:focus,select:focus,textarea:focus{outline:2px solid var(--ac);border-color:transparent}
+input.bad{border-color:#ff5a6a}.err{color:#ff8a96;font-size:13px;min-height:20px}
+.rs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:10px}
+.r{background:linear-gradient(160deg,rgba(47,123,255,.16),rgba(10,18,38,.7));border:1px solid var(--bd);border-radius:14px;padding:12px;animation:fi .4s}
+.r small{color:var(--mu);display:block;font-size:12px}.r b{font-size:22px;direction:ltr;display:block;text-align:right}.r u{text-decoration:none;color:var(--ac2);font-size:12px}
+.note{font-size:13px;color:var(--mu);border-right:3px solid var(--ac);padding:2px 10px;margin:10px 0}.warn{color:var(--wr);border-color:var(--wr)}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.sc{display:grid;grid-template-columns:1.4fr repeat(3,.7fr) auto;gap:8px;align-items:end;margin-bottom:8px;padding:10px;border:1px solid var(--bd);border-radius:12px}
+.sc .o{grid-column:1/-1;font-size:13px;color:var(--mu);direction:ltr;text-align:right}
+@media(max-width:640px){.sc{grid-template-columns:1fr 1fr}.sc>:first-child{grid-column:1/-1}}
+.sv{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+svg text{font-family:Cairo,sans-serif}
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin-bottom:14px}
+.sg label{cursor:pointer;display:flex;gap:8px;align-items:center;color:var(--tx);border:1px solid var(--bd);border-radius:12px;padding:10px}.sg input{width:auto}.sg label:has(input:checked){border-color:var(--ac);background:rgba(47,123,255,.15)}
+details{border:1px solid var(--bd);border-radius:12px;padding:8px 14px;margin-top:12px}summary{cursor:pointer;color:var(--wr)}
+.wa{position:fixed;left:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;width:54px;height:54px;border-radius:50%;background:#1faa59;display:grid;place-items:center;box-shadow:0 6px 20px rgba(0,0,0,.5);transition:transform .2s;animation:pl 3s infinite}.wa:hover{transform:scale(1.08)}
+@keyframes pl{0%,100%{box-shadow:0 6px 20px rgba(0,0,0,.5),0 0 0 0 rgba(31,170,89,.5)}50%{box-shadow:0 6px 20px rgba(0,0,0,.5),0 0 0 12px rgba(31,170,89,0)}}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+footer{text-align:center;color:var(--mu);font-size:13px;padding:30px 16px 90px;border-top:1px solid var(--bd)}
+#intro{position:fixed;inset:0;z-index:100;background:#030712;display:grid;place-items:center;cursor:pointer;transition:opacity .9s ease,visibility .9s}#intro.out{opacity:0;visibility:hidden}
+.scr{position:relative;width:min(88vw,760px);aspect-ratio:16/7;border:2px solid rgba(106,168,255,.35);border-radius:10px;background:radial-gradient(ellipse at center,#0b1c3d,#050a18);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;overflow:hidden;box-shadow:0 0 70px rgba(47,123,255,.35),inset 0 0 40px rgba(47,123,255,.2);animation:on .9s ease-out both}
+@keyframes on{0%{opacity:0;transform:scale(.5,.01)}40%{opacity:1;transform:scale(1,.01)}100%{transform:scale(1,1)}}
+.scr::after{content:"";position:absolute;inset:0;background:radial-gradient(circle,transparent 1.2px,rgba(3,7,18,.85) 1.9px);background-size:6px 6px;pointer-events:none}
+.scr::before{content:"";position:absolute;left:0;right:0;height:30%;top:-30%;background:linear-gradient(transparent,rgba(106,168,255,.18),transparent);animation:sw 2.2s .9s ease-in-out both;z-index:2}@keyframes sw{to{top:100%}}
+.nm{font:800 clamp(34px,9vw,84px)/1.3 Cairo,sans-serif;background:linear-gradient(90deg,#fff,#6aa8ff);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 16px rgba(47,123,255,.8));animation:rv2 1.3s .9s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rv2{from{clip-path:inset(0 0 0 100%);opacity:.2;filter:blur(10px) drop-shadow(0 0 16px rgba(47,123,255,.8))}to{clip-path:inset(0);opacity:1}}
+.sb{direction:ltr;letter-spacing:.35em;font-size:clamp(10px,2.4vw,14px);color:var(--ac2);animation:fi 1s 1.9s both}
+</style>
+</head>
+<body>
+<div id="intro" role="presentation"><div class="scr"><div class="nm">جهاد الديرباني</div><small class="sb">JIHAD AL-DIRBANI · LED TOOLS</small></div></div>
+<header><nav><b>JIHAD AL-DIRBANI <i>| LED TOOLS</i></b><a href="#home">الرئيسية</a><a href="#calc">حاسبة LED</a><a href="#pd">أدوات الطاقة والبيانات</a><a href="#resolume">Resolume</a><a href="#projects">المشاريع</a><a href="#services">الخدمات الفنية</a><a href="#about">من أنا</a></nav></header>
+
+<section id="home"><canvas id="bg" aria-hidden="true"></canvas>
+<div class="hero"><h1>كل حسابات شاشات LED في مكان واحد.</h1>
+<p>احسب دقة الشاشة، توزيع الكابينات، استهلاك الطاقة، وتوصيلات البيانات خلال ثوانٍ.</p>
+<p class="s">أدوات تقنية احترافية لمشغلي شاشات LED وشركات تنظيم المؤتمرات والإنتاج.</p>
+<div class="row"><a class="btn" href="#calc">ابدأ الحساب الآن</a><a class="btn g" href="#services">تواصل معي</a></div></div>
+<div class="scroll" aria-hidden="true"></div></section>
+
+<section id="calc" class="rv"><h2>حاسبة LED</h2><p class="sub">الدقة، الكابينات والموديولات — الأرقام تُحسب بالبكسل الصحيح فقط.</p>
+<div class="c"><div class="tabs" data-t="calc"><button class="on">Resolution</button><button>Cabinet &amp; Module</button></div>
+<div class="pn on" id="p-res"><div class="g2" id="f-res"></div><div class="err" id="e-res"></div><div class="rs" id="o-res"></div><div class="note" id="n-res"></div><details><summary>جدول Pixel Pitch الفعلي والمصادر</summary><div class="note" id="tb" style="direction:ltr;text-align:left"></div></details>
+<div class="row"><button class="btn g s" id="r-res">Reset</button><button class="btn s" id="a-res">إضافة للمشروع</button><button class="btn g s" id="c-res">نسخ النتيجة</button></div></div>
+<div class="pn" id="p-cab"><div class="g2" id="f-cab"></div><div class="err" id="e-cab"></div><div class="rs" id="o-cab"></div><div class="note" id="n-cab"></div><div class="row"><button class="btn g s" id="r-cab">Reset</button></div></div></div></section>
+
+<section id="pd" class="rv"><h2>أدوات الطاقة والبيانات</h2><p class="sub">تقديرات للتخطيط فقط — وليست تصميماً كهربائياً معتمداً.</p>
+<div class="c"><div class="tabs" data-t="pd"><button class="on">Power</button><button>CAT6 / Data</button><button>Viewing Distance</button></div>
+<div class="pn on"><div class="g2" id="f-pow"></div><div class="err" id="e-pow"></div><div class="rs" id="o-pow"></div>
+<div class="note warn">كل النتائج تقديرية. W/m² الافتراضي مجرد افتراض للتجربة — أدخل قيمة الشركة المصنعة. لا توجد سعة دائرة عالمية آمنة: أدخل التصنيف المتاح عندك.</div>
+<details><summary>تحذير كهربائي</summary><p class="note">مقاسات الكابلات، القواطع، التأريض، توازن الفازات وتوزيع الكهرباء يجب أن يتحقق منها كهربائي مؤهل قبل التنفيذ.</p></details>
+<div class="row"><button class="btn g s" id="r-pow">Reset</button></div></div>
+<div class="pn"><div class="g2" id="f-dat"></div><div class="err" id="e-dat"></div><div class="rs" id="o-dat"></div>
+<svg id="dg" viewBox="0 0 640 170" width="100%" role="img" aria-label="Data flow diagram"></svg>
+<div class="note warn">قدرات المنافذ تُدخل يدوياً ولا يوجد أي رقم مفترض. تحقق من حدود المنافذ، طوبولوجيا الإشارة، طول الكابل وتوافق الأجهزة من وثائق الشركة المصنعة.</div>
+<div class="row"><button class="btn s" id="s-eq">حفظ ملف المعدات</button><button class="btn g s" id="r-dat">Reset</button></div></div>
+<div class="pn"><div class="g2" id="f-vw"></div><div class="rs" id="o-vw"></div><div class="note">قاعدة عملية تقريبية (المسافة بالمتر ≈ معامل × Pitch بالمليمتر). الفعلي يعتمد على المحتوى وجودة الشاشة وظروف المشاهدة ومتطلبات الجمهور.</div></div></div></section>
+
+<section id="resolume" class="rv"><h2>Resolume &amp; Content Resolution</h2><p class="sub">تُبنى الـ Canvas من شاشات المشروع أدناه (Multi-Screen Project Builder).</p>
+<div class="c"><div class="g2" id="f-rs"></div><div class="rs" id="o-rs"></div><svg id="cv" viewBox="0 0 640 220" width="100%" role="img" aria-label="Composition preview" style="margin-top:12px"></svg>
+<div class="row"><button class="btn s" id="c-rs">نسخ Composition</button></div></div></section>
+
+<section id="projects" class="rv"><h2>Multi-Screen Project Builder</h2><p class="sub">أضف الشاشات وعدّلها؛ الملخص والـ PDF يعتمدان عليها. الشاشات الافتراضية بيانات عيّنة (Sample).</p>
+<div class="c"><div class="g2" id="f-gl"></div><div id="sl"></div><div class="row"><button class="btn s" id="add">+ شاشة</button></div><div class="rs sv" id="o-pj"></div>
+<div class="g2" style="margin-top:14px"><div><label>اسم المشروع</label><input id="pname" placeholder="Project name" value=""></div></div>
+<div class="row"><button class="btn" id="pdf">تحميل تقرير PDF</button></div><div class="note" id="pdfn">التقرير بالإنجليزية (تنسيق PDF لا يدعم الحروف العربية المتصلة). لا يتضمن أي اعتماد هندسي.</div></div></section>
+
+<section id="services" class="rv"><h2>تحتاج مشغل أو دعم فني لمشروعك؟</h2><p class="sub">أقدم خدمات تشغيل شاشات LED، إدارة المحتوى المرئي، تجهيز Resolume، الدعم الفني، وتركيب وتجهيز شاشات المؤتمرات والفعاليات.</p>
+<div class="c"><div class="sg" id="sg"></div><div class="g2"><div><label>اسم المشروع (اختياري)</label><input id="wn" style="direction:rtl"></div></div>
+<label>رسالتك</label><textarea id="wm" rows="3"></textarea><div class="note" id="wp"></div><div class="row"><a class="btn" id="wl" target="_blank" rel="noopener">أرسل عبر WhatsApp</a></div></div></section>
+
+<section id="about" class="rv"><h2>جهاد الديرباني</h2><p class="sub" style="direction:ltr;text-align:right">LED Display Technology | Video Systems | Event Production</p>
+<div class="c"><p>جهاد الديرباني، متخصص في تقنيات شاشات LED وأنظمة العرض المرئي وتشغيل الأنظمة التقنية للفعاليات والمؤتمرات.</p><p>أعمل على تقديم حلول تقنية عملية تساعد شركات الإنتاج وتنظيم المؤتمرات والفرق الفنية على تخطيط وتنفيذ مشاريع شاشات LED بكفاءة واحترافية.</p></div></section>
+<footer>JIHAD AL-DIRBANI | LED TOOLS — جميع النتائج تقديرية للتخطيط ولا تغني عن التحقق من مواصفات الشركة المصنعة.</footer>
+<a class="wa" id="wf" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.2 13.9c-.2.6-1.300 1.200-1.800 1.200-.5.1-1 .2-3.300-.7-2.800-1.200-4.500-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800s.7-2 1-2.300c.2-.3.600-.3.800-.3h.600c.2 0 .4 0 .6.500l.9 2.100c.1.200.1.300 0 .5l-.4.600c-.1.100-.3.300-.1.600.6 1 1.400 1.800 2.400 2.300.3.200.5.100.7-.1l.7-.9c.2-.2.400-.2.600-.1l2 .9c.2.100.4.200.4.300.1.200.1.700-.1 1.100z"/></svg></a>
+
+<script>
+const $=i=>document.getElementById(i),UM={m:1000,cm:10,mm:1},PT=[1.2,1.5,1.8,1.9,2.5,2.6,2.9,3.9,4.8,5.9,6.6,7.8,10],WA='962782401104',RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const gcd=(a,b)=>b?gcd(b,a%b):a,fmt=n=>isFinite(n)?n.toLocaleString('en-US',{maximumFractionDigits:2}):'—',V=i=>parseFloat($(i).value);
+/* ===== calculation logic (UI-independent) ===== */
+const L={
+ res(w,h,p){const hx=Math.floor(w/p+1e-6),vx=Math.floor(h/p+1e-6);return{hx,vx,tot:hx*vx,mp:hx*vx/1e6,area:w*h/1e6,ratio:hx/vx,g:gcd(hx,vx)}},
+ cab(cw,ch,mw,mh,nx,ny,p){const mx=Math.floor(cw/mw+1e-9),my=Math.floor(ch/mh+1e-9),px=Math.floor(cw/p+1e-6),py=Math.floor(ch/p+1e-6);return{n:nx*ny,mpc:mx*my,exact:cw%mw<1e-6&&ch%mh<1e-6,tm:mx*my*nx*ny,W:nx*cw,H:ny*ch,rx:px*nx,ry:py*ny}},
+ pow(area,wm2,v,mg,cap){const max=area*wm2,mw=max*(1+mg/100),mc=mw/v,c=cap>0?Math.ceil(mc/cap):NaN;return{max,I:max/v,mw,mc,c,per:mc/c}},
+ ports(tot,cap){return cap>0?Math.ceil(tot/cap):NaN}
+};
+/* Nominal P → PHYSICAL pitch = 500mm ÷ pixels per 500mm cabinet (manufacturer datasheets). [pitch, verified] */
+const PH={1.2:[500/400,1],1.5:[500/320,1],1.8:[1.875,1],1.9:[500/256,1],2.5:[500/200,1],2.6:[500/192,1],2.9:[500/168,1],3.9:[500/128,1],4.8:[500/104,1],5.9:[500/84,1],6.6:[500/75,0],7.8:[500/64,1],10:[10,0]};
+const phys=p=>PH[p]?PH[p][0]:p;
+/* ===== helpers ===== */
+const F=(id,l,v,x='')=>`<div><label for="${id}">${l}</label><input id="${id}" value="${v}" inputmode="decimal" ${x}></div>`;
+const SEL=(id,l,o,s)=>`<div><label for="${id}">${l}</label><select id="${id}">${o.map(([v,t])=>`<option value="${v}" ${v==s?'selected':''}>${t}</option>`).join('')}</select></div>`;
+const PO=PT.map(p=>[p,'P'+p]).concat([['c','Custom']]),UO=[['m','متر (m)'],['cm','سنتيمتر (cm)'],['mm','ملم (mm)']];
+function pitch(sel,cus){const v=$(sel).value;return v==='c'?V(cus):phys(parseFloat(v))}
+function bad(ids,msg,e){let b=0;ids.forEach(i=>{const x=!(V(i)>0);$(i).classList.toggle('bad',x);b|=x});$(e).textContent=b?msg:'';return!b}
+function out(id,a){$(id).innerHTML=a.map(([l,v,u],i)=>`<div class="r"><small>${l}</small><b data-v="${v}">${typeof v=='number'?fmt(v):v}</b>${u?`<u>${u}</u>`:''}</div>`).join('');if(!RM)$(id).querySelectorAll('b').forEach(b=>{const t=+b.dataset.v;if(!isFinite(t)||typeof t!='number')return;const s=performance.now();(function f(n){const k=Math.min(1,(n-s)/450);b.textContent=fmt(t*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(f);else b.textContent=fmt(t)})(s)})}
+function tabs(){document.querySelectorAll('.tabs').forEach(t=>{const ps=[...t.parentElement.children].filter(x=>x.classList.contains('pn'));t.querySelectorAll('button').forEach((b,i)=>b.onclick=()=>{t.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');ps.forEach((p,j)=>p.classList.toggle('on',i==j))})})}
+function copy(t,btn){const d=()=>{const o=btn.textContent;btn.textContent='تم النسخ ✓';setTimeout(()=>btn.textContent=o,1400)};navigator.clipboard?.writeText(t).then(d,()=>fb()).catch(fb);function fb(){const a=document.createElement('textarea');a.value=t;document.body.append(a);a.select();try{document.execCommand('copy');d()}catch(e){}a.remove()}}
+const bind=(ids,fn)=>ids.forEach(i=>$(i).addEventListener('input',fn));
+let last=null;
+/* ===== Resolution ===== */
+$('f-res').innerHTML=F('rw','العرض',6)+F('rh','الارتفاع',3)+SEL('ru','الوحدة',UO,'m')+SEL('rp','Pixel Pitch (mm)',PO,2.9)+F('rpc','Custom Pitch الفعلي (mm)',2.976);
+function calcRes(){const k=UM[$('ru').value];$('rpc').parentElement.style.display=$('rp').value==='c'?'':'none';const p=pitch('rp','rpc');
+ if(!bad(['rw','rh'],'أدخل أرقاماً موجبة للأبعاد.','e-res')||!(p>0)){$('o-res').innerHTML='';$('n-res').textContent='';last=null;return}
+ const w=V('rw')*k,h=V('rh')*k,r=L.res(w,h,p);last={w:w/1000,h:h/1000,p,r,nom:$('rp').value==='c'?p:parseFloat($('rp').value),lbl:$('rp').value==='c'?p+'mm':'P'+$('rp').value};
+ const ar=r.g>1&&r.hx/r.g<=50?`${r.hx/r.g}:${r.vx/r.g}`:fmt(r.ratio)+':1';
+ out('o-res',[['Horizontal Pixels',r.hx,'px'],['Vertical Pixels',r.vx,'px'],['Total Resolution',`${r.hx} × ${r.vx}`],['Total Pixels',r.tot,'px'],['Megapixels',r.mp,'MP'],['Screen Area',r.area,'m²'],['Aspect Ratio',ar]]);
+ const sl=$('rp').value,vf=sl==='c'||PH[parseFloat(sl)][1],cb=(w%500<1e-6&&h%500<1e-6)?` = ${w/500}×${h/500} كابينة 500×500 × ${Math.round(500/p)} px.`:'';$('n-res').textContent=`Pitch الفعلي المستخدم: ${p.toFixed(4)} mm (الاسمي P${sl} ≠ الفعلي؛ الفعلي = 500mm ÷ بكسلات الكابينة حسب الـ datasheets). الحساب الدقيق: ${(w/p).toFixed(2)} × ${(h/p).toFixed(2)} ← يُقرَّب للأسفل لبكسل كامل.${cb}${vf?'':' ⚠ هذا الـ Pitch غير موثّق من مصدر: أدخل الفعلي من datasheet كابينتك في Custom.'}`;wa()}
+bind(['rw','rh','ru','rp','rpc'],calcRes);
+$('r-res').onclick=()=>{$('rw').value=6;$('rh').value=3;$('ru').value='m';$('rp').value=2.9;calcRes()};
+$('c-res').onclick=e=>last&&copy(`${last.r.hx} × ${last.r.vx}`,e.target);
+$('a-res').onclick=()=>{if(!last)return;S.push({n:'Screen '+(S.length+1),w:last.w,h:last.h,p:last.nom});renderS();location.hash='#projects'};
+/* ===== Cabinet ===== */
+$('f-cab').innerHTML=F('cw','عرض الكابينة (mm)',500)+F('ch','ارتفاع الكابينة (mm)',500)+F('mw','عرض الموديول (mm)',250)+F('mh','ارتفاع الموديول (mm)',250)+F('cx','كابينات أفقياً',12)+F('cy','كابينات عمودياً',6)+SEL('cp','Pixel Pitch (mm)',PO,2.9)+F('cpc','Custom Pitch',2.9);
+function calcCab(){$('cpc').parentElement.style.display=$('cp').value==='c'?'':'none';const p=pitch('cp','cpc');
+ if(!bad(['cw','ch','mw','mh','cx','cy'],'كل الحقول مطلوبة وبقيم موجبة.','e-cab')||!(p>0)){$('o-cab').innerHTML='';return}
+ const nx=Math.round(V('cx')),ny=Math.round(V('cy')),r=L.cab(V('cw'),V('ch'),V('mw'),V('mh'),nx,ny,p);
+ out('o-cab',[['Cabinets H × V',`${nx} × ${ny}`],['Total Cabinets',r.n],['Modules / Cabinet',r.mpc],['Total Modules',r.tm],['Actual Size',`${fmt(r.W/1000)} × ${fmt(r.H/1000)}`,'m'],['Actual Resolution',`${r.rx} × ${r.ry}`,'px']]);
+ $('n-cab').textContent=(r.exact?'':'تنبيه: أبعاد الكابينة ليست مضاعفاً صحيحاً للموديول — تحقق من مواصفات الشركة. ')+'عدد الموديولات يُحسب من الأبعاد المدخلة؛ عدّلها حسب كابيناتك (مثلاً 500×500 أو 500×1000).'}
+bind(['cw','ch','mw','mh','cx','cy','cp','cpc'],calcCab);$('r-cab').onclick=()=>{['cw','ch','mw','mh','cx','cy'].forEach((k,i)=>$(k).value=[500,500,250,250,12,6][i]);calcCab()};
+/* ===== Power ===== */
+$('f-pow').innerHTML=F('pw','العرض (m)',6)+F('ph','الارتفاع (m)',3)+F('pm','Max W/m² (افتراض عيّنة — عدّله)',600)+F('pt','Typical % من الأقصى (افتراض)',35)+SEL('pv','الجهد',[[220,'220V'],[110,'110V']],220)+F('pg','هامش أمان %',20)+F('pc','سعة الدائرة المتاحة (A)',16);
+function calcPow(){if(!bad(['pw','ph','pm','pc'],'أدخل قيماً موجبة (الأبعاد، W/m²، سعة الدائرة).','e-pow')){$('o-pow').innerHTML='';return}
+ const a=V('pw')*V('ph'),v=+$('pv').value,r=L.pow(a,V('pm'),v,V('pg')||0,V('pc')),ty=r.max*(V('pt')||0)/100;
+ out('o-pow',[['Screen Area',a,'m²'],['Max Estimated Power',r.max,'W'],['Max (kW)',r.max/1000,'kW'],['Estimated Current',r.I,'A'],['Max + Margin',r.mw,'W'],['Typical Operating (est.)',ty,'W'],['Suggested Circuits (est.)',r.c,`@ ${V('pc')}A`],['Load / Circuit (est.)',r.per,'A']])}
+bind(['pw','ph','pm','pt','pv','pg','pc'],calcPow);$('r-pow').onclick=()=>{['pw','ph','pm','pt','pg','pc'].forEach((k,i)=>$(k).value=[6,3,600,35,20,16][i]);calcPow()};
+/* ===== Data ===== */
+let EQ;try{EQ=JSON.parse(localStorage.getItem('eq'))}catch(e){}EQ=EQ||[{n:'NovaStar VX1000',o:'',c:''},{n:'NovaStar VX600',o:'',c:''},{n:'NovaStar MX40 Pro',o:'',c:''},{n:'Custom',o:'',c:''}];
+$('f-dat').innerHTML=F('dx','Horizontal px',2016)+F('dy','Vertical px',1008)+SEL('dq','Processor profile',EQ.map((e,i)=>[i,e.n]),0)+F('dn','Ethernet outputs (من الدليل)','')+F('dc','Max pixels / output (من الدليل)','')+F('dk','عدد الكابينات (اختياري)',72)+F('dm','Receiving Card (اختياري)','','style="direction:rtl"');
+$('dq').onchange=()=>{const e=EQ[$('dq').value];$('dn').value=e.o;$('dc').value=e.c;calcDat()};
+$('s-eq').onclick=e=>{EQ[$('dq').value].o=$('dn').value;EQ[$('dq').value].c=$('dc').value;try{localStorage.setItem('eq',JSON.stringify(EQ))}catch(x){}e.target.textContent='تم الحفظ ✓';setTimeout(()=>e.target.textContent='حفظ ملف المعدات',1400)};
+function calcDat(){if(!bad(['dx','dy'],'أدخل دقة الشاشة.','e-dat')){$('o-dat').innerHTML='';return}
+ const tot=V('dx')*V('dy'),cap=V('dc'),n=V('dn'),k=V('dk')||0,u=L.ports(tot,cap);
+ if(!(cap>0)){$('e-dat').textContent='أدخل سعة المنفذ (pixels/output) من مواصفات الشركة المصنعة — لا توجد قيمة افتراضية.';out('o-dat',[['Total Pixels',tot,'px']]);draw(0,k);return}
+ const ok=!(n>0)||u<=n,jump=k?Math.max(0,k-u):NaN;$('e-dat').textContent=ok?'':'⚠ المنافذ المتاحة لا تكفي لهذه الدقة.';
+ out('o-dat',[['Total Pixels',tot,'px'],['Min Data Outputs',u],['Ports Used',u,n>0?'من '+n:''],['Remaining Ports',n>0?n-u:'—'],['Remaining Capacity',u*cap-tot,'px'],['Pixels / Port (even split)',Math.ceil(tot/u),'px'],['CAT6 Runs: Processor→Cab',u],['Daisy-chain Links',jump]]);draw(u,k)}
+function draw(u,k){let s='';const bx=(x,y,w,t)=>`<rect x="${x}" y="${y}" width="${w}" height="34" rx="8" fill="#0a1426" stroke="#2f7bff"/><text x="${x+w/2}" y="${y+22}" fill="#f2f6ff" font-size="12" text-anchor="middle">${t}</text>`;
+ const m=Math.min(u,6)||1;s+=bx(10,68,110,'Processor');for(let i=0;i<m;i++){const y=14+i*(130/m);s+=`<path d="M120 85 C200 85 200 ${y+17} 270 ${y+17}" stroke="#2f7bff" fill="none" stroke-dasharray="6 5"><animate attributeName="stroke-dashoffset" from="22" to="0" dur="1.2s" repeatCount="indefinite"/></path><text x="196" y="${y+12}" fill="#9db0d0" font-size="10">Port ${i+1}</text>`+bx(270,y,100,'Cabinet')+`<path d="M370 ${y+17}H430" stroke="#6aa8ff"/>`+bx(430,y,110,'Receiving Card')+`<path d="M540 ${y+17}H600" stroke="#6aa8ff" stroke-dasharray="3 4"/><text x="548" y="${y+12}" fill="#9db0d0" font-size="10">daisy →</text>`}
+ $('dg').innerHTML=s+`<text x="320" y="164" fill="#9db0d0" font-size="11" text-anchor="middle">${u?(u>6?'يعرض أول 6 منافذ من '+u:'')+(k?` — ${k} كابينة`:''):'أدخل السعة لعرض التوزيع'}</text>`}
+bind(['dx','dy','dn','dc','dk'],calcDat);$('r-dat').onclick=()=>{$('dx').value=2016;$('dy').value=1008;$('dn').value='';$('dc').value='';calcDat()};
+/* ===== Viewing ===== */
+$('f-vw').innerHTML=SEL('vp','Pixel Pitch',PO.slice(0,-1),2.9)+F('v1','معامل الحد الأدنى',1)+F('v2','معامل المريح',2.5)+F('v3','معامل الإرشاد العام',4);
+function calcVw(){const p=+$('vp').value;if(!bad(['v1','v2','v3'],'','e-pow'))return;out('o-vw',[['Minimum Practical',p*V('v1'),'m'],['Comfortable',p*V('v2'),'m'],['General Guidance (≈)',p*V('v3'),'m']])}
+bind(['vp','v1','v2','v3'],calcVw);
+/* ===== Project ===== */
+let S=[{n:'Main LED (Sample)',w:6,h:3,p:2.9},{n:'Left LED (Sample)',w:2,h:3,p:2.9}];
+$('f-gl').innerHTML=F('gw','عرض الكابينة (mm)',500)+F('gh','ارتفاع الكابينة (mm)',500)+F('gm','Max W/m² (افتراض)',600)+SEL('gv','الجهد',[[220,'220V'],[110,'110V']],220)+F('gg','هامش %',20)+F('gc','سعة الدائرة (A)',16)+F('gp','Max pixels / output','');
+const E=(i,k,t='')=>`<input data-i="${i}" data-k="${k}" value="${S[i][k]}" ${t}>`;
+function renderS(){$('sl').innerHTML=S.map((s,i)=>`<div class="sc"><div><label>الاسم</label><input data-i="${i}" data-k="n" value="${s.n}" style="direction:rtl"></div><div><label>W (m)</label>${E(i,'w','inputmode="decimal"')}</div><div><label>H (m)</label>${E(i,'h','inputmode="decimal"')}</div><div><label>Pitch (mm)</label>${E(i,'p','inputmode="decimal"')}</div><div class="row" style="margin:0"><button class="btn g s" data-d="${i}">نسخ</button><button class="btn g s" data-x="${i}">حذف</button></div><div class="o" id="so${i}"></div></div>`).join('');calcP()}
+$('sl').addEventListener('input',e=>{const t=e.target;if(t.dataset.k){S[t.dataset.i][t.dataset.k]=t.dataset.k=='n'?t.value:parseFloat(t.value);calcP()}});
+$('sl').addEventListener('click',e=>{const t=e.target.dataset;if(t.d!=null)S.splice(+t.d+1,0,{...S[t.d],n:S[t.d].n+' copy'});else if(t.x!=null){if(S.length<2)return;S.splice(t.x,1)}else return;renderS()});
+$('add').onclick=()=>{S.push({n:'Screen '+(S.length+1),w:2,h:2,p:2.9});renderS()};
+function sc(s){if(!(s.w>0&&s.h>0&&s.p>0))return null;const r=L.res(s.w*1000,s.h*1000,phys(s.p)),cw=V('gw'),ch=V('gh'),nx=Math.round(s.w*1000/cw)||1,ny=Math.round(s.h*1000/ch)||1,pw=L.pow(s.w*s.h,V('gm')||0,+$('gv').value,V('gg')||0,V('gc')),pt=L.ports(r.tot,V('gp'));return{r,n:nx*ny,nx,ny,pw,pt}}
+function calcP(){let A=0,P=0,W=0,C=0,PT_=0,ok=1;S.forEach((s,i)=>{const c=sc(s);$('so'+i).textContent=c?`${c.r.hx} × ${c.r.vx} px @ ${phys(s.p).toFixed(3)}mm | ${c.nx}×${c.ny}=${c.n} cabinets | ~${fmt(c.pw.mw)} W (max+margin) | ports: ${isFinite(c.pt)?c.pt:'—'}`:'قيم غير صالحة';if(c){A+=c.r.area;P+=c.r.tot;W+=c.pw.mw;C+=c.n;if(isFinite(c.pt))PT_+=c.pt;else ok=0}});
+ out('o-pj',[['Screens',S.length],['Total Area',A,'m²'],['Total Pixels',P,'px'],['Total Cabinets',C],['Est. Power (max+margin)',W/1000,'kW'],['Est. Data Ports',ok?PT_:'أدخل سعة المنفذ']]);calcRs();wa()}
+bind(['gw','gh','gm','gv','gg','gc','gp'],calcP);
+/* ===== Resolume ===== */
+$('f-rs').innerHTML=SEL('ra','Arrangement',[['h','Horizontal (جنباً إلى جنب)'],['v','Vertical (فوق بعض)'],['x','Custom']],'h')+F('rcw','Custom Width (px)','')+F('rch','Custom Height (px)','');
+function calcRs(){const rs=S.map(sc).filter(Boolean).map(c=>c.r),a=$('ra').value;if(!rs.length)return;let W,H,pos=[],x=0,y=0;
+ if(a=='h'){W=rs.reduce((t,r)=>t+r.hx,0);H=Math.max(...rs.map(r=>r.vx));rs.forEach(r=>{pos.push([x,0,r]);x+=r.hx})}
+ else{W=Math.max(...rs.map(r=>r.hx));H=rs.reduce((t,r)=>t+r.vx,0);rs.forEach(r=>{pos.push([0,y,r]);y+=r.vx})}
+ if(a=='x'&&V('rcw')>0&&V('rch')>0){W=V('rcw');H=V('rch')}
+ const k=Math.min(600/W,200/H);$('cv').innerHTML=`<rect x="10" y="10" width="${W*k}" height="${H*k}" fill="#0a1226" stroke="#6aa8ff" stroke-dasharray="4"/>`+pos.map(([px,py,r],i)=>`<rect x="${10+px*k}" y="${10+py*k}" width="${r.hx*k}" height="${r.vx*k}" fill="rgba(47,123,255,.35)" stroke="#2f7bff"/><text x="${10+(px+r.hx/2)*k}" y="${10+(py+r.vx/2)*k}" fill="#fff" font-size="11" text-anchor="middle">${S.map(sc).filter(Boolean).length?r.hx+'×'+r.vx:''}</text>`).join('');
+ const g=gcd(W,H);out('o-rs',[['Composition Width',W,'px'],['Composition Height',H,'px'],['Total Canvas',`${W} × ${H}`],['Aspect Ratio',g>1&&W/g<=50?`${W/g}:${H/g}`:fmt(W/H)+':1'],...rs.map((r,i)=>[`Output ${i+1}`,`${r.hx} × ${r.vx}`,'px'])]);window.RC=`${W}x${H}`;window.RCT=`${W} × ${H}`}
+bind(['ra','rcw','rch'],calcRs);$('c-rs').onclick=e=>copy(window.RCT||'',e.target);
+/* ===== WhatsApp ===== */
+const SV=['LED Screen Operator','Resolume Operator','NovaStar Technical Support','LED Screen Installation','Visual Content Design','Conference Technical Support','Technical Consultation','Other'];
+$('sg').innerHTML=SV.map((s,i)=>`<label><input type="radio" name="sv" value="${s}" ${i?'':'checked'}>${s}</label>`).join('');
+function wa(){const sv=document.querySelector('input[name=sv]:checked').value,L_=last||(()=>{const c=sc(S[0]||{});return c?{w:S[0].w,h:S[0].h,p:S[0].p,r:c.r}:null})();
+ let t='مرحباً جهاد، أحتاج استفسار بخصوص مشروع LED.\n\nالخدمة المطلوبة: '+sv+'\n';if($('wn').value.trim())t+='اسم المشروع: '+$('wn').value.trim()+'\n';
+ if(L_)t+=`أبعاد الشاشة: ${fmt(L_.w)} × ${fmt(L_.h)} متر\nPixel Pitch: ${L_.lbl||'P'+L_.p}\nResolution: ${L_.r.hx} × ${L_.r.vx}\n`;
+ t+='\n'+($('wm').value.trim()||'أرغب بالتواصل بخصوص تفاصيل المشروع.');$('wp').textContent=t;$('wp').style.whiteSpace='pre-line';$('wl').href=`https://wa.me/${WA}?text=${encodeURIComponent(t)}`}
+document.querySelectorAll('#services input,#services textarea').forEach(x=>x.addEventListener('input',wa));$('wf').href=`https://wa.me/${WA}?text=${encodeURIComponent('مرحباً جهاد، أحتاج استفسار بخصوص مشروع LED.')}`;
+/* ===== PDF ===== */
+$('pdf').onclick=()=>{try{const D=new jspdf.jsPDF(),M=15;let y=0;const P=(t,f=10,c=[40,50,70],b=0)=>{if(y>275){D.addPage();y=20}D.setFont('helvetica',b?'bold':'normal').setFontSize(f).setTextColor(...c);D.text(String(t),M,y);y+=f*.5+3};
+ D.setFillColor(6,11,23).rect(0,0,210,34,'F');y=15;P('JIHAD AL-DIRBANI | LED TOOLS',16,[255,255,255],1);P('Professional LED Display Tools & Technical Solutions',9,[106,168,255]);y=44;
+ P('Project: '+($('pname').value||'(unnamed)'),13,[6,11,23],1);P('Date: '+new Date().toISOString().slice(0,10));y+=3;
+ S.forEach((s,i)=>{const c=sc(s);if(!c)return;P(`${i+1}. ${s.n.replace(/[^\x20-\x7e]/g,'')||'Screen'}`,11,[47,123,255],1);P(`Size: ${s.w} x ${s.h} m   Pixel Pitch: P${s.p} (physical ${phys(s.p).toFixed(4)} mm)   Area: ${fmt(c.r.area)} m2`);P(`Resolution: ${c.r.hx} x ${c.r.vx} px   Total: ${fmt(c.r.tot)} px (${fmt(c.r.mp)} MP)`);P(`Cabinets (${V('gw')}x${V('gh')} mm): ${c.nx} x ${c.ny} = ${c.n}`);
+  P(`Est. power: max ${fmt(c.pw.max)} W | +${V('gg')||0}% margin ${fmt(c.pw.mw)} W | est. current ${fmt(c.pw.I)} A @ ${$('gv').value}V`);P(`Est. circuits @ ${V('gc')}A: ${isFinite(c.pw.c)?c.pw.c:'n/a'}   Data ports: ${isFinite(c.pt)?c.pt+' (capacity '+V('gp')+' px/output, user-entered)':'not calculated (capacity not entered)'}`);y+=2});
+ P('Resolume composition: '+(window.RCT||'n/a')+' px ('+$('ra').selectedOptions[0].text.replace(/[^\x20-\x7e]/g,'').trim()+')',10,[6,11,23],1);y+=3;
+ P('Notes & warnings',11,[200,100,20],1);['All figures are ESTIMATES for planning only, not approved engineering designs.','Power values use user-entered W/m2; verify with manufacturer specifications.','Cable sizing, breakers, grounding, phase balancing and distribution must be verified by a qualified electrician.','Verify processor port limits, signal topology, cable length and hardware compatibility.'].forEach(t=>P('- '+t,9));
+ D.setFontSize(8).setTextColor(120);D.text('Prepared using JIHAD AL-DIRBANI LED TOOLS',M,290);
+ const n='LED-report.pdf';try{D.save(n)}catch(e){}
+ const a=document.createElement('a');a.href=D.output('bloburl');a.target='_blank';a.rel='noopener';}catch(e){$('pdfn').textContent='تعذّر إنشاء PDF: '+e.message}};
+/* ===== background / reveal ===== */
+(function(){const c=$('bg'),x=c.getContext('2d');let W,H,on=true,t=0;function rs(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight}rs();addEventListener('resize',rs);
+ function d(){t+=.02;x.clearRect(0,0,W,H);const g=26;for(let i=0;i<W/g;i++)for(let j=0;j<H/g;j++){const a=RM?.15:.08+.22*Math.max(0,Math.sin(i*.35+j*.25-t*2));x.fillStyle=`rgba(47,123,255,${a})`;x.fillRect(i*g+8,j*g+8,5,5)}
+  x.strokeStyle='rgba(106,168,255,.25)';for(let k=0;k<3;k++){const y=H*(.3+.2*k);x.beginPath();for(let i=0;i<=W;i+=20)x.lineTo(i,y+Math.sin(i*.01+t+k)*18);x.stroke()}
+  if(on&&!RM)setTimeout(()=>requestAnimationFrame(d),33)}d();new IntersectionObserver(e=>{const v=e[0].isIntersecting;if(v&&!on&&!RM){on=true;d()}on=v}).observe(c)})();
+new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.08}).observe&&document.querySelectorAll('.rv').forEach(el=>{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){el.classList.add('in');io.disconnect()}}),{threshold:.05});io.observe(el)});
+$('tb').innerHTML=Object.entries(PH).map(([n,[p,v]])=>`P${n} → ${p.toFixed(4)} mm → ${Math.round(500/p*100)/100} px per 500mm ${v?'✔':'⚠ unverified'}`).join('<br>')+'<br><br>Sources: Planar VVR/VVRI brochure; LG LSCA/GSCA/LSCC specs; LiveTekk/Procom datasheets; NG500 series (500×500 cabinets: P1.953=256, P2.5=200, P2.604=192, P2.976=168, P3.91=128, P4.81=104, P5.95=84, P7.81=64 px); 600×337.5 cabinets for P1.25/1.56/1.875.';tabs();calcRes();calcCab();calcPow();calcDat();calcVw();renderS();wa();
+(function(){const i=$('intro');document.body.style.overflow='hidden';let d=0;const end=()=>{if(d)return;d=1;i.classList.add('out');document.body.style.overflow='';setTimeout(()=>i.remove(),1000)};i.onclick=end;setTimeout(end,RM?700:3600)})();
+</script>
+</body>
+</html>
